@@ -12,7 +12,7 @@ import os
 url = os.getenv("DATABASE_URL")
 
 if url:
-    SQLALCHEMY_DATABASE_URL = url
+    SQLALCHEMY_DATABASE_URL = "postgresql://friend_db:friendpsw@localhost:5432/postgre_auth"
 else:
     SQLALCHEMY_DATABASE_URL = "postgresql://friend_db:friendpsw@postgres-service:5432/postgre_auth"
 
