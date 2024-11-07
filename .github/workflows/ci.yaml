@@ -16,7 +16,7 @@ jobs:
         env:
           POSTGRES_USER: friend_db
           POSTGRES_PASSWORD: friendpsw
-          POSTGRES_DB: postgre_auth
+          POSTGRES_DB: postgre_friend
         ports:
           - 5432:5432
         options: >-

@@ -47,7 +47,7 @@ spec:
             - name: POSTGRES_PASSWORD
               value: "friendpsw"
             - name: POSTGRES_DB
-              value: "postgre_auth"
+              value: "postgre_friend"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-storage

@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from fastapi.testclient import TestClient
 from main import app, Base
 
-SQLALCHEMY_DATABASE_URL = "postgresql://friend_db:friendpsw@localhost:5432/postgre_auth"  # Modifier selon votre config
+SQLALCHEMY_DATABASE_URL = "postgresql://friend_db:friendpsw@localhost:5432/postgre_friend"  # Modifier selon votre config
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
