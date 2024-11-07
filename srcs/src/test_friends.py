@@ -57,12 +57,12 @@ def test_get_user_friend_requests(client, db):
     assert isinstance(response.json(), list)
 
 def test_update_friend_request(client, db):
-    response = client.put("/api/v1/update_friend_requests/3?status=accepted")
+    response = client.put("/api/v1/update_friend_requests/1?status=accepted")
     assert response.status_code == 200
     assert response.json()["status"] == "accepted"
 
 def test_delete_friend(client, db):
-    response = client.delete("/api/v1/delete/3")
+    response = client.delete("/api/v1/delete/1")
     assert response.status_code == 200
 
     response = client.delete("/api/v1/delete/9999")
