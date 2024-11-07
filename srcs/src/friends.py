@@ -27,21 +27,21 @@ def update_friend_request(request_id: int, status: str, db: Session = Depends(da
     if not updated_request:
         raise HTTPException(status_code=404, detail="Request not found")
     if status == "accepted":
-        # Création d'un ami en utilisant les identifiants de l'expéditeur et du destinataire
         crud.create_friend(
             db=db,
             friend=schemas.FriendCreate(
-                user_id=updated_request.receiver_id,  # L'ID de l'utilisateur qui a reçu la demande
-                friend_id=updated_request.sender_id    # L'ID de l'utilisateur qui a envoyé la demande
+                user_id=updated_request.receiver_id,
+                friend_id=updated_request.sender_id   
             )
         )
 
     crud.delete_friend_request(db=db, request_id=request_id)
     return updated_request
 
+
+
 @router.delete("/delete/{friend_id}",response_model=schemas.Friend)
 def delete_friend(friend_id:int, db: Session = Depends(database.get_db)):
-    # Tente de supprimer l'ami à partir de l'ID donné
     deleted_friend = crud.delete_friend(db=db, friend_id=friend_id)
     
     if not deleted_friend:
